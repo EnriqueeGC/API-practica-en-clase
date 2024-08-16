@@ -49,7 +49,7 @@ exports.retrieveAllLibros = (req, res) => {
 
 // '/api/libro/onebyid/:id'
 exports.getLibroById = (req, res) => {
-    let idLibro = req.params.codigo_libro;
+    let idLibro = req.params.id;
 
     Libro.findByPk(idLibro)
         .then(libro => {
@@ -69,7 +69,7 @@ exports.getLibroById = (req, res) => {
 // '/api/libro/update/:id'
 exports.updateLibroById = async (req, res) => {
     try {
-        let idLibro = req.params.codigo_libro;
+        let idLibro = req.params.id;
         let libro = await Libro.findByPk(idLibro);
 
         if (!libro) {
@@ -107,7 +107,7 @@ exports.updateLibroById = async (req, res) => {
 // '/api/libro/delete/:id'
 exports.deleteLibroById = async (req, res) => {
     try {
-        let idLibro = req.params.codigo_libro;
+        let idLibro = req.params.id;
         let libro = await Libro.findByPk(idLibro);
 
         if (!libro) {
